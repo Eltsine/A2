@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-inscription-heading" jhiTranslate="azimutApp.inscription.home.createOrEditLabel">Create or edit a Inscription</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.dateInscription" for="field_dateInscription">Date Inscription</label>
+                    <div class="input-group">
+                        <input id="field_dateInscription" type="text" class="form-control" name="dateInscription" ngbDatepicker #dateInscriptionDp="ngbDatepicker" formControlName="dateInscription"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateInscriptionDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateInscription')!.invalid && (editForm.get('dateInscription')!.dirty || editForm.get('dateInscription')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateInscription')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.montantApayer" for="field_montantApayer">Montant Apayer</label>
+                    <input type="number" class="form-control" name="montantApayer" id="field_montantApayer"
+                           formControlName="montantApayer"/>
+                    <div *ngIf="editForm.get('montantApayer')!.invalid && (editForm.get('montantApayer')!.dirty || editForm.get('montantApayer')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantApayer')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantApayer')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.montantVerse" for="field_montantVerse">Montant Verse</label>
+                    <input type="number" class="form-control" name="montantVerse" id="field_montantVerse"
+                           formControlName="montantVerse"/>
+                    <div *ngIf="editForm.get('montantVerse')!.invalid && (editForm.get('montantVerse')!.dirty || editForm.get('montantVerse')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('montantVerse')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('montantVerse')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.resteApayer" for="field_resteApayer">Reste Apayer</label>
+                    <input type="number" class="form-control" name="resteApayer" id="field_resteApayer"
+                           formControlName="resteApayer"/>
+                    <div *ngIf="editForm.get('resteApayer')!.invalid && (editForm.get('resteApayer')!.dirty || editForm.get('resteApayer')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('resteApayer')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('resteApayer')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.etatEtudiant" for="field_etatEtudiant">Etat Etudiant</label>
+                    <input type="text" class="form-control" name="etatEtudiant" id="field_etatEtudiant"
+                           formControlName="etatEtudiant"/>
+                    <div *ngIf="editForm.get('etatEtudiant')!.invalid && (editForm.get('etatEtudiant')!.dirty || editForm.get('etatEtudiant')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etatEtudiant')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.periode" for="field_periode">Periode</label>
+                    <select class="form-control" id="field_periode" name="periode" formControlName="periodeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="periodeOption.id" *ngFor="let periodeOption of periodes; trackBy: trackById">{{ periodeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.etablissement" for="field_etablissement">Etablissement</label>
+                    <select class="form-control" id="field_etablissement" name="etablissement" formControlName="etablissementId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="etablissementOption.id" *ngFor="let etablissementOption of etablissements; trackBy: trackById">{{ etablissementOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.inscription.anneeScolaire" for="field_anneeScolaire">Annee Scolaire</label>
+                    <select class="form-control" id="field_anneeScolaire" name="anneeScolaire" formControlName="anneeScolaireId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="anneeScolaireOption.id" *ngFor="let anneeScolaireOption of anneescolaires; trackBy: trackById">{{ anneeScolaireOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{
+  "name": "Formation",
+  "fields": [
+    {
+      "fieldName": "nomFormation",
+      "fieldType": "NomFormation",
+      "fieldValues": "Cours_Appui,COURS_A_Domicile,Anglais,Entrepreneuriat_Numerique,Entrepreuneuriat_Classique,Informatique",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "rapport",
+      "otherEntityRelationshipName": "formation",
+      "relationshipName": "rapport",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "module",
+      "otherEntityRelationshipName": "formation",
+      "relationshipName": "module"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inscription",
+      "otherEntityRelationshipName": "formation",
+      "relationshipName": "inscription",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210709090601",
+  "entityTableName": "formation",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

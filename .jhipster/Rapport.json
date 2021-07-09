@@ -1,0 +1,24 @@
+{
+  "name": "Rapport",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "formation",
+      "otherEntityRelationshipName": "rapport",
+      "relationshipName": "formation",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20210709090801",
+  "entityTableName": "rapport",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

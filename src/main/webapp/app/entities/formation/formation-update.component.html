@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-formation-heading" jhiTranslate="azimutApp.formation.home.createOrEditLabel">Create or edit a Formation</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.formation.nomFormation" for="field_nomFormation">Nom Formation</label>
+                    <select class="form-control" name="nomFormation" formControlName="nomFormation" id="field_nomFormation">
+                        <option value="Cours_Appui">{{ 'azimutApp.NomFormation.Cours_Appui' | translate }}</option>
+                        <option value="COURS_A_Domicile">{{ 'azimutApp.NomFormation.COURS_A_Domicile' | translate }}</option>
+                        <option value="Anglais">{{ 'azimutApp.NomFormation.Anglais' | translate }}</option>
+                        <option value="Entrepreneuriat_Numerique">{{ 'azimutApp.NomFormation.Entrepreneuriat_Numerique' | translate }}</option>
+                        <option value="Entrepreuneuriat_Classique">{{ 'azimutApp.NomFormation.Entrepreuneuriat_Classique' | translate }}</option>
+                        <option value="Informatique">{{ 'azimutApp.NomFormation.Informatique' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('nomFormation')!.invalid && (editForm.get('nomFormation')!.dirty || editForm.get('nomFormation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nomFormation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.formation.rapport" for="field_rapport">Rapport</label>
+                    <select class="form-control" id="field_rapport" name="rapport" formControlName="rapportId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="rapportOption.id" *ngFor="let rapportOption of rapports; trackBy: trackById">{{ rapportOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="azimutApp.formation.inscription" for="field_inscription">Inscription</label>
+                    <select class="form-control" id="field_inscription" name="inscription" formControlName="inscriptionId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="inscriptionOption.id" *ngFor="let inscriptionOption of inscriptions; trackBy: trackById">{{ inscriptionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

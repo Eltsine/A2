@@ -1,0 +1,55 @@
+{
+  "name": "Session",
+  "fields": [
+    {
+      "fieldName": "dateDebut",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nbreParticipant",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nbreHeure",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "heureDebut",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "heureFin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "contenuFormation",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "module",
+      "otherEntityRelationshipName": "session",
+      "relationshipName": "module",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210709090901",
+  "entityTableName": "session",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

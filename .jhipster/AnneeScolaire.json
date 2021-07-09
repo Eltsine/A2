@@ -1,0 +1,28 @@
+{
+  "name": "AnneeScolaire",
+  "fields": [
+    {
+      "fieldName": "libelleAnnee",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "inscription",
+      "otherEntityRelationshipName": "anneeScolaire",
+      "relationshipName": "inscription"
+    }
+  ],
+  "changelogDate": "20210709090401",
+  "entityTableName": "annee_scolaire",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,78 @@
+{
+  "name": "Formateur",
+  "fields": [
+    {
+      "fieldName": "photo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "cnib",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "salaireHoraire",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "salaireMensuel",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "specialite",
+      "otherEntityRelationshipName": "formateur",
+      "relationshipName": "specialite"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "apprenant",
+      "otherEntityRelationshipName": "formateur",
+      "relationshipName": "personne"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "etablissement",
+      "otherEntityRelationshipName": "formateur",
+      "relationshipName": "etablissement",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210709091101",
+  "entityTableName": "formateur",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

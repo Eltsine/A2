@@ -1,0 +1,30 @@
+{
+  "name": "Specialite",
+  "fields": [
+    {
+      "fieldName": "libSpecialite",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "formateur",
+      "otherEntityRelationshipName": "specialite",
+      "relationshipName": "formateur",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210709091201",
+  "entityTableName": "specialite",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

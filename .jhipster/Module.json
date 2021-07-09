@@ -1,0 +1,41 @@
+{
+  "name": "Module",
+  "fields": [
+    {
+      "fieldName": "nomModule",
+      "fieldType": "NomModule",
+      "fieldValues": "Math_PC,Math_SVT,PC_SVT,Math_Pc_SVT,Anglais,Francais,Philosphie,Francais_Anglais_Math,Francais_Philo,Francais_Anglais_Philo,Bureatique,Infographie",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "BigDecimal"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "session",
+      "otherEntityRelationshipName": "module",
+      "relationshipName": "session"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "formation",
+      "otherEntityRelationshipName": "module",
+      "relationshipName": "formation",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210709090701",
+  "entityTableName": "module",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

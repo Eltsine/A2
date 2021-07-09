@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="session">
+            <h2><span jhiTranslate="azimutApp.session.detail.title">Session</span> {{ session.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="azimutApp.session.dateDebut">Date Debut</span></dt>
+                <dd>
+                    <span>{{ session.dateDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.dateFin">Date Fin</span></dt>
+                <dd>
+                    <span>{{ session.dateFin }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.nbreParticipant">Nbre Participant</span></dt>
+                <dd>
+                    <span>{{ session.nbreParticipant }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.nbreHeure">Nbre Heure</span></dt>
+                <dd>
+                    <span>{{ session.nbreHeure }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.heureDebut">Heure Debut</span></dt>
+                <dd>
+                    <span>{{ session.heureDebut }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.heureFin">Heure Fin</span></dt>
+                <dd>
+                    <span>{{ session.heureFin }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.contenuFormation">Contenu Formation</span></dt>
+                <dd>
+                    <span>{{ session.contenuFormation }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.session.module">Module</span></dt>
+                <dd>
+                    <div *ngIf="session.moduleId">
+                        <a [routerLink]="['/module', session.moduleId, 'view']">{{ session.moduleId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/session', session.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

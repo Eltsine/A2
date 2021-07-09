@@ -1,0 +1,38 @@
+{
+  "name": "Etablissement",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "inscription",
+      "otherEntityRelationshipName": "etablissement",
+      "relationshipName": "inscription"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "formateur",
+      "otherEntityRelationshipName": "etablissement",
+      "relationshipName": "formateur"
+    }
+  ],
+  "changelogDate": "20210709091401",
+  "entityTableName": "etablissement",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

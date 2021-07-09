@@ -1,0 +1,71 @@
+{
+  "name": "Inscription",
+  "fields": [
+    {
+      "fieldName": "dateInscription",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "montantApayer",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "montantVerse",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "resteApayer",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "etatEtudiant",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "periode",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "periode",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "formation",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "formation"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "etablissement",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "etablissement",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "anneeScolaire",
+      "otherEntityRelationshipName": "inscription",
+      "relationshipName": "anneeScolaire",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210709091501",
+  "entityTableName": "inscription",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

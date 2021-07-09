@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="azimutApp.inscription.home.title">Inscriptions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-inscription" [routerLink]="['/inscription/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="azimutApp.inscription.home.createLabel">
+            Create a new Inscription
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="inscriptions?.length === 0">
+        <span jhiTranslate="azimutApp.inscription.home.notFound">No inscriptions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="inscriptions && inscriptions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateInscription"><span jhiTranslate="azimutApp.inscription.dateInscription">Date Inscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantApayer"><span jhiTranslate="azimutApp.inscription.montantApayer">Montant Apayer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantVerse"><span jhiTranslate="azimutApp.inscription.montantVerse">Montant Verse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="resteApayer"><span jhiTranslate="azimutApp.inscription.resteApayer">Reste Apayer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etatEtudiant"><span jhiTranslate="azimutApp.inscription.etatEtudiant">Etat Etudiant</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="periodeId"><span jhiTranslate="azimutApp.inscription.periode">Periode</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etablissementId"><span jhiTranslate="azimutApp.inscription.etablissement">Etablissement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="anneeScolaireId"><span jhiTranslate="azimutApp.inscription.anneeScolaire">Annee Scolaire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inscription of inscriptions ;trackBy: trackId">
+                    <td><a [routerLink]="['/inscription', inscription.id, 'view']">{{ inscription.id }}</a></td>
+                    <td>{{ inscription.dateInscription | date:'mediumDate' }}</td>
+                    <td>{{ inscription.montantApayer }}</td>
+                    <td>{{ inscription.montantVerse }}</td>
+                    <td>{{ inscription.resteApayer }}</td>
+                    <td>{{ inscription.etatEtudiant }}</td>
+                    <td>
+                        <div *ngIf="inscription.periodeId">
+                            <a [routerLink]="['/periode', inscription.periodeId , 'view']" >{{ inscription.periodeId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inscription.etablissementId">
+                            <a [routerLink]="['/etablissement', inscription.etablissementId , 'view']" >{{ inscription.etablissementId }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="inscription.anneeScolaireId">
+                            <a [routerLink]="['/annee-scolaire', inscription.anneeScolaireId , 'view']" >{{ inscription.anneeScolaireId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/inscription', inscription.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/inscription', inscription.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(inscription)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="inscriptions && inscriptions.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

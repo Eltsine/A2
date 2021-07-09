@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formateur">
+            <h2><span jhiTranslate="azimutApp.formateur.detail.title">Formateur</span> {{ formateur.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="azimutApp.formateur.photo">Photo</span></dt>
+                <dd>
+                    <div *ngIf="formateur.photo">
+                        <a (click)="openFile(formateur.photoContentType, formateur.photo)">
+                            <img [src]="'data:' + formateur.photoContentType + ';base64,' + formateur.photo" style="max-width: 100%;" alt="formateur image"/>
+                        </a>
+                        {{ formateur.photoContentType }}, {{ byteSize(formateur.photo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.cnib">Cnib</span></dt>
+                <dd>
+                    <span>{{ formateur.cnib }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ formateur.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ formateur.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.statut">Statut</span></dt>
+                <dd>
+                    <span>{{ formateur.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.contact">Contact</span></dt>
+                <dd>
+                    <span>{{ formateur.contact }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.email">Email</span></dt>
+                <dd>
+                    <span>{{ formateur.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.salaireHoraire">Salaire Horaire</span></dt>
+                <dd>
+                    <span>{{ formateur.salaireHoraire }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.salaireMensuel">Salaire Mensuel</span></dt>
+                <dd>
+                    <span>{{ formateur.salaireMensuel }}</span>
+                </dd>
+                <dt><span jhiTranslate="azimutApp.formateur.etablissement">Etablissement</span></dt>
+                <dd>
+                    <div *ngIf="formateur.etablissementId">
+                        <a [routerLink]="['/etablissement', formateur.etablissementId, 'view']">{{ formateur.etablissementId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/formateur', formateur.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
