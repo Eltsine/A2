@@ -1,0 +1,143 @@
+
+entity AnneeScolaire{
+	id Long,
+	libelleAnnee String
+}
+
+entity Periode{
+	id Long,
+    duree String,
+    dateDebut LocalDate required,
+    dateFin LocalDate required
+}
+
+entity Formation{
+	id Long,
+    nomFormation NomFormation required 
+
+}
+enum NomFormation{
+Cours_Appui, COURS_A_Domicile, Anglais, Entrepreneuriat_Numerique,
+Entrepreuneuriat_Classique, Informatique
+}
+
+
+entity Module{
+id Long,
+nomModule NomModule required,
+prix BigDecimal
+}
+enum NomModule{
+Math_PC, Math_SVT, PC_SVT, Math_Pc_SVT, Anglais, Francais, Philosphie, Francais_Anglais_Math,
+Francais_Philo, Francais_Anglais_Philo, Bureatique, Infographie
+}
+
+entity Rapport{
+
+}
+
+entity Session{
+dateDebut LocalDate,
+dateFin LocalDate,
+nbreParticipant Integer required,
+nbreHeure Integer,
+heureDebut Integer,
+heureFin Integer,
+contenuFormation String required
+}
+
+entity Salle{
+id Long
+nomSalle String required,
+capacite String
+}
+
+entity Formateur{
+
+	id Long
+    photo 	ImageBlob,
+    cnib String required,
+    nom String required,
+    prenom String required,
+	statut String,
+    contact String required,
+    email String,
+    salaireHoraire Long,
+    salaireMensuel Long
+}
+
+entity Specialite{
+id Long,
+libSpecialite String required
+
+}
+
+entity Apprenant{
+id Long,
+photo ImageBlob,
+nom String required,
+prenom String required,
+statut String required,
+niveau String
+contact String required,
+email String,
+addParent String
+
+
+}
+
+entity Etablissement {
+	id Long,
+    nom String,
+    adresse String
+    
+
+}
+
+entity Inscription {
+	id Long,
+  dateInscription LocalDate required,
+  montantApayer BigDecimal required,
+  montantVerse BigDecimal required,
+  resteApayer BigDecimal required,
+  etatEtudiant String required
+
+
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Etablissement{inscription} to Inscription {etablissement},
+	AnneeScolaire{inscription} to Inscription{anneeScolaire},
+    Inscription{formation} to Formation{inscription},
+    Formation{module} to Module{formation},
+    Module{session} to Session{module},
+    Formateur{specialite} to Specialite{formateur},
+    Formateur{personne} to Apprenant{formateur},
+    Etablissement{formateur} to Formateur{etablissement}
+}
+
+relationship ManyToOne {
+    Salle{session} to Session,
+    Apprenant{inscription} to Inscription
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	Inscription{periode} to Periode
+    Formation to Rapport
+	
+    
+}
+
+// Set pagination options
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

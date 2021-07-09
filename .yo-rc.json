@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "azimut",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "azimut",
+    "packageName": "azimut",
+    "packageFolder": "azimut",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "caffeine",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzkzZGQwYjJiZDI4MzkxZjgwZTU0NDQ4YmEwYmEyMTIwNzYwODRkOGNkM2JmMzc4NWFlMTQ3ZWY3MWViYmUxNmQyMmY5Y2QyOTdjNDAwODBmNDkwYmYwZjAzNTA5ZjFkNTEyZDFkOTRhYjY5NTY3NjE2NzhmZTU4NWE4NmRkOTI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "simplex",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1625764254288,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": ["fr"],
+    "blueprints": []
+  }
+}
