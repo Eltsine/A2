@@ -33,7 +33,7 @@
                     <label class="form-control-label" jhiTranslate="azimutApp.salle.session" for="field_session">Session</label>
                     <select class="form-control" id="field_session" name="session" formControlName="sessionId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="sessionOption.id" *ngFor="let sessionOption of sessions; trackBy: trackById">{{ sessionOption.id }}</option>
+                        <option [ngValue]="sessionOption.id" *ngFor="let sessionOption of sessions; trackBy: trackById">{{ sessionOption.contenuFormation }}</option>
                     </select>
                 </div>
             </div>

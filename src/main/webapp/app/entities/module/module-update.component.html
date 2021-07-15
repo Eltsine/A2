@@ -45,7 +45,7 @@
                     <label class="form-control-label" jhiTranslate="azimutApp.module.formation" for="field_formation">Formation</label>
                     <select class="form-control" id="field_formation" name="formation" formControlName="formationId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="formationOption.id" *ngFor="let formationOption of formations; trackBy: trackById">{{ formationOption.id }}</option>
+                        <option [ngValue]="formationOption.id" *ngFor="let formationOption of formations; trackBy: trackById">{{ formationOption.nomFormation }}</option>
                     </select>
                 </div>
             </div>

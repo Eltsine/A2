@@ -105,7 +105,7 @@
                     <label class="form-control-label" jhiTranslate="azimutApp.formateur.etablissement" for="field_etablissement">Etablissement</label>
                     <select class="form-control" id="field_etablissement" name="etablissement" formControlName="etablissementId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="etablissementOption.id" *ngFor="let etablissementOption of etablissements; trackBy: trackById">{{ etablissementOption.id }}</option>
+                        <option [ngValue]="etablissementOption.id" *ngFor="let etablissementOption of etablissements; trackBy: trackById">{{ etablissementOption.nom }}</option>
                     </select>
                 </div>
             </div>

@@ -20,7 +20,7 @@
 
     <div class="table-responsive" id="entities" *ngIf="apprenants && apprenants.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
-            <thead>
+            <thead class="bg-info card-header">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="photo"><span jhiTranslate="azimutApp.apprenant.photo">Photo</span> <fa-icon icon="sort"></fa-icon></th>
@@ -66,20 +66,20 @@
                         <div class="btn-group">
                             <button type="submit"
                                     [routerLink]="['/apprenant', apprenant.id, 'view']"
-                                    class="btn btn-info btn-sm">
+                                    class="btn btn-info btn-sm rounded-circle">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
                                     [routerLink]="['/apprenant', apprenant.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn btn-primary btn-sm rounded-circle">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                             </button>
 
                             <button type="submit" (click)="delete(apprenant)"
-                                    class="btn btn-danger btn-sm">
+                                    class="btn btn-danger btn-sm rounded-circle">
                                 <fa-icon icon="times"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                             </button>

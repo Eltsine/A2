@@ -90,10 +90,23 @@
 
                     <div class="col-12 col-md-4">
                         <section class="card">
-                            <img src="../../content/images/inscription.jpg" class="card-img-top"/>
-                            <h1 class="card-title card-header btn btn-success">Element2</h1>
+                            <img src="../../content/images/specialite.jpg" class="card-img-top"/>
+                            <h1 class="card-title card-header btn btn-success" routerLink="specialite" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{ exact: true }">Specialité</h1>
                         </section>
                     </div>
+
+
+                    <div class="col-12 col-md-4">
+                        <br>
+                        <br>
+                        <section class="card">
+                            <img src="../../content/images/module.png" class="card-img-top"/>
+                            <h1 class="card-title card-header btn btn-blue-grey" routerLink="module" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{ exact: true }">Module</h1>
+                        </section>
+                    </div>
+
                 </div>
 
             </article>
