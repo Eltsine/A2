@@ -50,8 +50,8 @@
 
     <!--Debut Section 2-->
 
-    <section>
-
+    <section class="row" *ngIf="isAuthenticated()">
+        <!--Debut bloc 1-->
         <div class="col-12 col-md-9">
             <article>
                 <div class="row">
@@ -64,43 +64,77 @@
                         </section>
                     </div>
 
-<!--                    <div class="col-12 col-md-4">-->
-<!--                        <section class="card">-->
-<!--                            <img src="../../content/images/formation1.jpg" class="card-img-top"/>-->
-<!--                            <h1 class="card-title card-header btn btn-warning">Formations</h1>-->
-<!--                        </section>-->
-<!--                    </div>-->
+                    <div class="col-12 col-md-4">
+                        <section class="card">
+                            <img src="../../content/images/formation1.jpg" class="card-img-top" alt="img"/>
+                            <h1 class="card-title card-header btn btn-warning" routerLink="formation" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{ exact: true }">Formations</h1>
+                        </section>
+                    </div>
 
-<!--                    <div class="col-12 col-md-4">-->
-<!--                        <section class="card">-->
-<!--                            <img src="../../content/images/professeur.jpg" class="card-img-top" alt="img"/>-->
-<!--                            <h1 class="card-title card-header btn btn-danger" routerLink="formateur"-->
-<!--                                routerLinkActive="active">Formateurs-->
-<!--                            </h1>-->
+                    <div class="col-12 col-md-4">
+                    <section class="card">
+                        <img src="../../content/images/professeur.jpg" class="card-img-top" alt="img"/>
+                        <h1 class="card-title card-header btn btn-danger" routerLink="formateur"
+                            routerLinkActive="active">Formateurs
+                        </h1>
+                    </section>
+                </div>
 
-<!--                        </section>-->
-<!--                    </div>-->
+                    <div class="col-12 col-md-4">
+                        <section class="card">
+                            <img src="../../content/images/inscription.jpg" class="card-img-top"/>
+                            <h1 class="card-title card-header btn btn-info">Element1</h1>
+                        </section>
+                    </div>
 
-<!--                    <div class="col-12 col-md-4">-->
-<!--                        <section class="card">-->
-<!--                            <img src="../../content/images/inscription.jpg" class="card-img-top"/>-->
-<!--                            <h1 class="card-title card-header btn btn-info">Element1</h1>-->
-<!--                        </section>-->
-<!--                    </div>-->
-
-<!--                    <div class="col-12 col-md-4">-->
-<!--                        <section class="card">-->
-<!--                            <img src="../../content/images/inscription.jpg" class="card-img-top"/>-->
-<!--                            <h1 class="card-title card-header btn btn-success">Element2</h1>-->
-<!--                        </section>-->
-<!--                    </div>-->
+                    <div class="col-12 col-md-4">
+                        <section class="card">
+                            <img src="../../content/images/inscription.jpg" class="card-img-top"/>
+                            <h1 class="card-title card-header btn btn-success">Element2</h1>
+                        </section>
+                    </div>
                 </div>
 
             </article>
         </div>
+        <!--Fin block 1-->
+
+        <!--Debut block 2-->
+
+        <div class="col-12 col-md-3">
+
+            <div class="row card-body">
+                <div class="col-12 col-md-10 btn btn-outline-primary">
+                    <h3 class=" card-header" routerLink="etablissement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        Etablissement</h3>
+                </div>
+
+            </div>
+
+            <div class="row card-body">
+                <div class="col-12 col-md-10 btn btn-outline-dark">
+                    <h3 class=" card-header" routerLink="annee-scolaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        Année Scolaire</h3>
+                </div>
+
+            </div>
+
+            <div class="row card-body">
+                <div class="col-12 col-md-10 btn btn-outline-warning">
+                    <h3 class="card-header" routerLink="periode" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        Periode</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <!--Fin block 2-->
 
     </section>
     <!-- Fin Section 2-->
+
+
 
 </main>
 
