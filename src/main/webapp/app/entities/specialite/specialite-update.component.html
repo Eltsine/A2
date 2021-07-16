@@ -27,7 +27,7 @@
                     <label class="form-control-label" jhiTranslate="azimutApp.specialite.formateur" for="field_formateur">Formateur</label>
                     <select class="form-control" id="field_formateur" name="formateur" formControlName="formateurId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="formateurOption.id" *ngFor="let formateurOption of formateurs; trackBy: trackById">{{ formateurOption.nom.concat( +" "+ formateurOption.prenom)  }}</option>
+                        <option [ngValue]="formateurOption.id" *ngFor="let formateurOption of formateurs; trackBy: trackById">{{ formateurOption.nom }}</option>
                     </select>
                 </div>
             </div>
