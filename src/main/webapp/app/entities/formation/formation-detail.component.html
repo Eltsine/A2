@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-8 card">
         <div *ngIf="formation">
             <h2><span jhiTranslate="azimutApp.formation.detail.title">Formation</span> {{ formation.id }}</h2>
 
@@ -12,7 +12,7 @@
                 <dd>
                     <span jhiTranslate="{{ 'azimutApp.NomFormation.' + formation.nomFormation }}">{{ formation.nomFormation }}</span>
                 </dd>
-                <dt><span jhiTranslate="azimutApp.formation.rapport">Rapport</span></dt>
+<!--                <dt><span jhiTranslate="azimutApp.formation.rapport">Rapport</span></dt>-->
                 <dd>
                     <div *ngIf="formation.rapportId">
                         <a [routerLink]="['/rapport', formation.rapportId, 'view']">{{ formation.rapportId }}</a>

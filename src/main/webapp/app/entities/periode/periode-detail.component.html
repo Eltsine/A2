@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-8 card">
         <div *ngIf="periode">
             <h2><span jhiTranslate="azimutApp.periode.detail.title">Periode</span> {{ periode.id }}</h2>
 
@@ -14,11 +14,11 @@
                 </dd>
                 <dt><span jhiTranslate="azimutApp.periode.dateDebut">Date Debut</span></dt>
                 <dd>
-                    <span>{{ periode.dateDebut }}</span>
+                    <span>{{ periode.dateDebut | date: 'mediumDate'}}</span>
                 </dd>
                 <dt><span jhiTranslate="azimutApp.periode.dateFin">Date Fin</span></dt>
                 <dd>
-                    <span>{{ periode.dateFin }}</span>
+                    <span>{{ periode.dateFin | date:'mediumDate' }}</span>
                 </dd>
             </dl>
 

@@ -2,9 +2,9 @@
     <h2 id="page-heading">
         <span jhiTranslate="azimutApp.formation.home.title">Formations</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-formation" [routerLink]="['/formation/new']">
+        <button id="jh-create-entity" class="btn btn-outline-deep-purple float-right jh-create-entity create-formation" [routerLink]="['/formation/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="azimutApp.formation.home.createLabel">
+            <span  jhiTranslate="azimutApp.formation.home.createLabel" class="bg border-dark">
             Create a new Formation
             </span>
         </button>
@@ -18,7 +18,7 @@
         <span jhiTranslate="azimutApp.formation.home.notFound">No formations found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="formations && formations.length > 0">
+    <div class="card table-responsive" id="entities" *ngIf="formations && formations.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
@@ -54,7 +54,7 @@
 
                             <button type="submit"
                                     [routerLink]="['/formation', formation.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
+                                    class="btn btn-outline-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                             </button>

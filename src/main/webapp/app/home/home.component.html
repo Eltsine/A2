@@ -1,6 +1,5 @@
-<h1><marquee>Cabinet de Formation et de Conseils Tous Azimut</marquee></h1>
+<h1><marquee>Cabinet de Formations et de Conseils Tous Azimuts</marquee></h1>
 <main>
-
 
     <section class="row" *ngIf="!isAuthenticated()">
 
@@ -83,8 +82,9 @@
 
                     <div class="col-12 col-md-4">
                         <section class="card">
-                            <img src="../../content/images/inscription.jpg" class="card-img-top"/>
-                            <h1 class="card-title card-header btn btn-info">Element1</h1>
+                            <img src="../../content/images/apprenant.jpg" class="card-img-top"/>
+                            <h1 class="card-title card-header btn btn-info" routerLink="apprenant" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{ exact: true }">Apprenants</h1>
                         </section>
                     </div>
 
@@ -115,7 +115,7 @@
 
         <!--Debut block 2-->
 
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-3 card">
 
             <div class="row card-body">
                 <div class="col-12 col-md-10 btn btn-outline-primary">

@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-8 card">
         <div *ngIf="formateur">
             <h2><span jhiTranslate="azimutApp.formateur.detail.title">Formateur</span> {{ formateur.id }}</h2>
 
@@ -7,7 +7,7 @@
 
             <jhi-alert-error></jhi-alert-error>
 
-            <dl class="row-md jh-entity-details">
+            <dl class="row-md jh-entity-details card-columns">
                 <dt><span jhiTranslate="azimutApp.formateur.photo">Photo</span></dt>
                 <dd>
                     <div *ngIf="formateur.photo">
