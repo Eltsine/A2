@@ -1,13 +1,13 @@
 <div class="row justify-content-center">
     <div class="col-8 card">
-        <div *ngIf="apprenant">
+        <div *ngIf="apprenant" >
             <h2><span jhiTranslate="azimutApp.apprenant.detail.title">Apprenant</span> {{ apprenant.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
-            <dl class="row-md jh-entity-details">
+            <dl class="row-md jh-entity-details card-columns">
                 <dt><span jhiTranslate="azimutApp.apprenant.photo">Photo</span></dt>
                 <dd>
                     <div *ngIf="apprenant.photo">
@@ -17,10 +17,12 @@
                         {{ apprenant.photoContentType }}, {{ byteSize(apprenant.photo) }}
                     </div>
                 </dd>
+
                 <dt><span jhiTranslate="azimutApp.apprenant.nom">Nom</span></dt>
                 <dd>
                     <span>{{ apprenant.nom }}</span>
                 </dd>
+
                 <dt><span jhiTranslate="azimutApp.apprenant.prenom">Prenom</span></dt>
                 <dd>
                     <span>{{ apprenant.prenom }}</span>

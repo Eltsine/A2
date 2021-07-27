@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-8 card">
         <div *ngIf="inscription">
             <h2><span jhiTranslate="azimutApp.inscription.detail.title">Inscription</span> {{ inscription.id }}</h2>
 
@@ -7,10 +7,10 @@
 
             <jhi-alert-error></jhi-alert-error>
 
-            <dl class="row-md jh-entity-details">
+            <dl class="row-md jh-entity-details card-columns">
                 <dt><span jhiTranslate="azimutApp.inscription.dateInscription">Date Inscription</span></dt>
                 <dd>
-                    <span>{{ inscription.dateInscription }}</span>
+                    <span>{{ inscription.dateInscription | date: 'mediumDate' }}</span>
                 </dd>
                 <dt><span jhiTranslate="azimutApp.inscription.montantApayer">Montant Apayer</span></dt>
                 <dd>
