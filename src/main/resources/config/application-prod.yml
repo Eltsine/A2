@@ -42,7 +42,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/azimut
     username: postgres
-    password: root
+    password: b@ris_99
     hikari:
       poolName: Hikari
       auto-commit: false
